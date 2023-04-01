@@ -1,9 +1,11 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 
 export const Background = styled.div`
   background: #dbdbdb;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -38,10 +40,13 @@ text-align: center;
 export const LoginContainer = styled.div`
   flex: 1;
 `;
+export const LogoContainer = styled.div`
+  text-align: center;
+`;
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
-  padding: 0px 50px;
+  padding: 0px 70px;
 `;
 
 export const InputFeild = styled.input`
@@ -87,13 +92,14 @@ export const ButtonsContainer = styled.div`
   padding: 10px 50px;
 `;
 
-export const ActiveSpan = styled.span`
+export const ActiveLink = styled(Link)`
   font-family: "Inter";
   font-style: normal;
   font-weight: 400;
   font-size: 15px;
   line-height: 15px;
   color: #f10606;
+  text-decoration: none;
 `;
 export const TextSec = styled.span`
   font-family: "Inter";
