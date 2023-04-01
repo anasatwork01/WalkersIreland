@@ -2,10 +2,11 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage, Form, InputFeild, SubmitButton } from "./style";
 
-const LoginForm = () => {
+const SignupForm = () => {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -13,6 +14,15 @@ const LoginForm = () => {
   };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
+        
+      <InputFeild
+        type="text"
+        placeholder="Name"
+        {...register("name", {
+          required: { value: true, message: "Name is required" },
+        })}
+      />
+      {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
       <InputFeild
         type="text"
         placeholder="Email"
@@ -39,10 +49,24 @@ const LoginForm = () => {
       {errors.password && (
         <ErrorMessage>{errors.password.message}</ErrorMessage>
       )}
-      <SubmitButton type="submit" name="Login" value={"Login"} />
+      <InputFeild
+        type="password"
+        placeholder="Confirm Password"
+        {...register("confirmPassword", {
+          required: { value: true, message: "Confirm Password is required" },
+          validate: (val) => {
+            if (watch('password') !== val) {
+              return "Your passwords do no match";
+            }
+        }})}
+      />
+      {errors.confirmPassword && (
+        <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>
+      )}
+      <SubmitButton type="submit" name="SignUp" value={"Sign up"} />
       <hr />
     </Form>
   );
 };
 
-export default LoginForm;
+export default SignupForm;

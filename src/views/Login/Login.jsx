@@ -1,10 +1,11 @@
 import React from 'react'
-import { ActiveSpan, Background, Button, ButtonText, ButtonsContainer, LoginCard, LoginContainer, PictureContainer, TextSec } from './style'
+import { ActiveLink, Background, Button, ButtonText, ButtonsContainer, LoginCard, LoginContainer, LogoContainer, PictureContainer, TextSec } from './style'
 import LoginForm from './LoginForm'
 import loginImg from '../../assets/login.jpg';
 import logo from '../../assets/logo.png'
 import google from '../../assets/google.png'
 import facebook from '../../assets/facebook.png'
+
 
 
 const Login = () => {
@@ -15,9 +16,9 @@ const Login = () => {
             <img src={loginImg} alt="Food"  width={'100%'} height={'100%'}/>
           </PictureContainer>
           <LoginContainer>
-            <div>
-              <img src={logo} alt="" width={'50%'} />
-            </div>
+          <LogoContainer>
+            <img src={logo} alt="" width={"50%"} />
+          </LogoContainer>
             <div>
               <LoginForm/>
             </div>
@@ -32,7 +33,7 @@ const Login = () => {
               </Button>
             </ButtonsContainer>
             <TextSec>
-              <p>Do not have an Account? <ActiveSpan>Sign Up</ActiveSpan></p>
+              <p>Do not have an Account? <ActiveLink to={'/signup'}>Sign Up</ActiveLink></p>
             </TextSec>
           </LoginContainer>
         </LoginCard>
