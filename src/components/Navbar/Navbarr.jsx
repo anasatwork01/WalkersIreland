@@ -1,6 +1,6 @@
 import React from "react";
 import {Container} from "react-bootstrap";
-import profile from "../assets/profile.jpg";
+import profile from "../../assets/profile.jpg";
 import { User } from "./style";
 import { Navbar, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
@@ -15,9 +15,6 @@ const Navbarr = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <LinkContainer to="/home">
-              <Nav.Link>Home</Nav.Link>
-            </LinkContainer>
             <LinkContainer to="/destinations">
               <Nav.Link>Destinations</Nav.Link>
             </LinkContainer>
@@ -32,9 +29,6 @@ const Navbarr = () => {
             </LinkContainer>
             <LinkContainer to="/blog">
               <Nav.Link>Blog</Nav.Link>
-            </LinkContainer>
-            <LinkContainer to="/favourite">
-              <Nav.Link>Favourite</Nav.Link>
             </LinkContainer>
             <LinkContainer to="/contactus">
               <Nav.Link>Contact Us</Nav.Link>
