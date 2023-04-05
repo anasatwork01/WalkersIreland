@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 
 export const Background = styled.div`
@@ -12,6 +11,7 @@ export const Background = styled.div`
 `;
 
 export const Form = styled.form`
+margin: auto;
   display: flex;
   flex-direction: column;
   padding: 0px 70px;
@@ -87,9 +87,9 @@ export const ButtonText = styled.span`
 `;
 
 export const Contact = styled.h1`
+text-align: center;
   padding: 0px 70px;
 margin-top: 20px;
-  text-align: left;
   font-size: 43px;
   font-family: "Inter";
   font-style: normal;
@@ -97,15 +97,14 @@ margin-top: 20px;
 `
 
 export const Text = styled.p`
+text-align: center;
   padding: 0px 70px;
   margin-top: 20px;
-  text-align: left;
   font-family: "Inter";
   font-style: normal;
 `
 
 export const ContactDiv = styled.div`
-text-align: center;
-  margin: auto;
-  
+  margin: auto; 
 `
+export const CenterDiv = styled.div``;
