@@ -24,9 +24,9 @@ const Navbarr = () => {
             <LinkContainer to="/healthyeating">
               <Nav.Link>HealthyEating</Nav.Link>
             </LinkContainer>
-            <LinkContainer to="/wellbeing">
+            {/* <LinkContainer to="/wellbeing">
               <Nav.Link>Wellbeing</Nav.Link>
-            </LinkContainer>
+            </LinkContainer> */}
             <LinkContainer to="/blog">
               <Nav.Link>Blog</Nav.Link>
             </LinkContainer>
