@@ -30,7 +30,6 @@ export const HeaderContainer = styled(Container)`
 
 export const BlogHeading = styled.h1`
   color: black;
-  text-decoration: underline;
   margin-left: 5px;
   font-size: 32px;
 `;

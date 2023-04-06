@@ -7,7 +7,7 @@ const Header = () => {
   return (
     <MyHeader>
       <HeaderContainer>
-        <BlogHeading>BLOGS SECTION</BlogHeading>
+        <BlogHeading>BLOG SECTION</BlogHeading>
         <Link to={'/writeBlog'}>
           <FlexContainer>
           <img src={icon} alt="" />
