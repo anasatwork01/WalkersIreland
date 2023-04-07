@@ -1,6 +1,12 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Form, InputFeild, SubmitButton, TextFeild } from "./style";
+import {
+  Form,
+  InputFeild,
+  SubmitButton,
+  TextFeild,
+  ErrorMessage,
+} from "./style";
 
 const ContactUsForm = () => {
   const {
@@ -17,10 +23,11 @@ const ContactUsForm = () => {
         <InputFeild
           type="text"
           placeholder="Name"
-          {...register("Name", {
+          {...register("name", {
             required: { value: true, message: "Name is required" },
           })}
         />
+        {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
 
         <InputFeild
           type="text"
@@ -33,13 +40,18 @@ const ContactUsForm = () => {
             },
           })}
         />
+        {errors.email && <ErrorMessage>{errors.email.message}</ErrorMessage>}
 
         <TextFeild
           type="textarea"
           rows={5}
-          cols = {5}
+          cols={5}
           placeholder="Enter your query here"
+          {...register("query", {
+            required: { value: true, message: "Place your query here" },
+          })}
         />
+        {errors.query && <ErrorMessage>{errors.query.message}</ErrorMessage>}
 
         <SubmitButton type="submit" name="Contact Us" value={"Contact Us"} />
         <hr />
