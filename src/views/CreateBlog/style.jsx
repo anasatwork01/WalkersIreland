@@ -73,3 +73,8 @@ export const BlogDiv = styled.div`
 text-align: center;
   margin: auto;
 `
+
+export const ErrorMessage = styled.p`
+    text-align: left;
+    color: red;
+`;

@@ -6,6 +6,7 @@ import Navbarr from './components/Navbar/Navbarr';
 import ContactUs from './views/ContactUs/ContactUs';
 import Blogs from './views/Blogs/Blogs';
 import CreateBlog from './views/CreateBlog/CreateBlog';
+import SinglePageBlog from './views/SinglePageBlog/SinglePageBlog';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path='/contactus' element={<ContactUs/>}/>
       <Route path="/blog" element={<Blogs/>}/>
       <Route path='/writeBlog' element={<CreateBlog/>}/>
+      <Route path='/post' element={<SinglePageBlog/>}/>
     </Routes>
     </div>
   );
