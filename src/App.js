@@ -9,6 +9,9 @@ import CreateBlog from './views/CreateBlog/CreateBlog';
 import SinglePageBlog from './views/SinglePageBlog/SinglePageBlog';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import AllRecipes from './views/Recipes/AllRecipes';
+import RecipesHeader from './components/RecipesHeader/RecipesHeader';
+import SinglePageRecipe from './views/SinglePageRecipe/SinglePageRecipe'
 
 function App() {
   return (
@@ -21,6 +24,8 @@ function App() {
       <Route path="/blog" element={<Blogs/>}/>
       <Route path='/writeBlog' element={<CreateBlog/>}/>
       <Route path='/post' element={<SinglePageBlog/>}/>
+      <Route path='/healthyeating' element={<AllRecipes/>}/>
+      <Route path='/recipe' element={<SinglePageRecipe/>}/>
     </Routes>
     <ToastContainer/>
     </div>
