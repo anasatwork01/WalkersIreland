@@ -9,6 +9,7 @@ import CreateBlog from './views/CreateBlog/CreateBlog';
 import SinglePageBlog from './views/SinglePageBlog/SinglePageBlog';
 import AllRecipes from './views/Recipes/AllRecipes';
 import RecipesHeader from './components/RecipesHeader/RecipesHeader';
+import SinglePageRecipe from './views/SinglePageRecipe/SinglePageRecipe'
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <Route path='/writeBlog' element={<CreateBlog/>}/>
       <Route path='/post' element={<SinglePageBlog/>}/>
       <Route path='/healthyeating' element={<AllRecipes/>}/>
+      <Route path='/recipe' element={<SinglePageRecipe/>}/>
     </Routes>
     </div>
   );
