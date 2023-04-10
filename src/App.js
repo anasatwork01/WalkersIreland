@@ -11,8 +11,11 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AllRecipes from './views/Recipes/AllRecipes';
 import SinglePageRecipe from './views/SinglePageRecipe/SinglePageRecipe'
+import { useSelector } from 'react-redux';
 
 function App() {
+  const isauth = useSelector(state=>state.auth.isAuthenticated);
+  
   return (
     <div>
       <Navbarr/>

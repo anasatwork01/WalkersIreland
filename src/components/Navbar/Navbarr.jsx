@@ -5,7 +5,9 @@ import { User } from "./style";
 import { Navbar, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { MyNavbar, MyContainer, UserNavLink } from "./style";
+import { useSelector } from "react-redux";
 const Navbarr = () => {
+  const name = useSelector(state=>state.auth.user.name);
   return (
       <MyNavbar expand="lg" variant="dark">
         <MyContainer>
@@ -36,7 +38,7 @@ const Navbarr = () => {
 
             <User>
             <img src={profile} alt="" />
-            <UserNavLink>User</UserNavLink>
+            <UserNavLink>{name}</UserNavLink>
             </User>
           </Nav>
         </Navbar.Collapse>
