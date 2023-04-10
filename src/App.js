@@ -7,6 +7,8 @@ import ContactUs from './views/ContactUs/ContactUs';
 import Blogs from './views/Blogs/Blogs';
 import CreateBlog from './views/CreateBlog/CreateBlog';
 import SinglePageBlog from './views/SinglePageBlog/SinglePageBlog';
+import AllRecipes from './views/Recipes/AllRecipes';
+import RecipesHeader from './components/RecipesHeader/RecipesHeader';
 
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
       <Route path="/blog" element={<Blogs/>}/>
       <Route path='/writeBlog' element={<CreateBlog/>}/>
       <Route path='/post' element={<SinglePageBlog/>}/>
+      <Route path='/healthyeating' element={<AllRecipes/>}/>
     </Routes>
     </div>
   );
