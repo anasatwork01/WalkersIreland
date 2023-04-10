@@ -2,7 +2,14 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage, Form, InputFeild, SubmitButton } from "./style";
 
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { registerUser } from "../../store/authSlice";
+import { toast } from "react-toastify";
+
 const SignupForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -11,10 +18,20 @@ const SignupForm = () => {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
+    
+    dispatch(registerUser(data)).then((response) => {
+      if (response.error) {
+        // alert(response.error)
+      } else {
+        navigate("/login");
+        toast.success('User created successfully !', {
+          position: toast.POSITION.TOP_RIGHT
+      });
+      }
+    });
   };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
-        
       <InputFeild
         type="text"
         placeholder="Name"
@@ -52,16 +69,17 @@ const SignupForm = () => {
       <InputFeild
         type="password"
         placeholder="Confirm Password"
-        {...register("confirmPassword", {
+        {...register("passwordConfirm", {
           required: { value: true, message: "Confirm Password is required" },
           validate: (val) => {
-            if (watch('password') !== val) {
+            if (watch("password") !== val) {
               return "Your passwords do no match";
             }
-        }})}
+          },
+        })}
       />
-      {errors.confirmPassword && (
-        <ErrorMessage>{errors.confirmPassword.message}</ErrorMessage>
+      {errors.passwordConfirm && (
+        <ErrorMessage>{errors.passwordConfirm.message}</ErrorMessage>
       )}
       <SubmitButton type="submit" name="SignUp" value={"Sign up"} />
       <hr />

@@ -1,15 +1,29 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage, Form, InputFeild, SubmitButton } from "./style";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../store/authSlice";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
     console.log(data);
+    dispatch(loginUser(data)).then((response) => {
+      if (response.error) {
+        // alert(response)
+      } else {
+        navigate("/blog");
+      }
+    });
   };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>

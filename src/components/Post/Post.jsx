@@ -14,12 +14,12 @@ const Post = ({source}) => {
   return (
     <PostContainer>
       <ImageContainer>
-        <MyLink to={`/post/id`}>
+        <MyLink to={`/post`}>
           <Image src={source} />
         </MyLink>
       </ImageContainer>
       <div>
-        <MyLink to={`/post/id`}>
+        <MyLink to={`/post`}>
           <Title>{"Search Algorithm Introduction- Breadth First Search"}</Title>
         </MyLink>
         <Info>
