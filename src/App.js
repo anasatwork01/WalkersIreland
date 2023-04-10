@@ -10,7 +10,6 @@ import SinglePageBlog from './views/SinglePageBlog/SinglePageBlog';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AllRecipes from './views/Recipes/AllRecipes';
-import RecipesHeader from './components/RecipesHeader/RecipesHeader';
 import SinglePageRecipe from './views/SinglePageRecipe/SinglePageRecipe'
 
 function App() {
