@@ -4,6 +4,7 @@ import { ErrorMessage, Form, InputFeild, SubmitButton } from "./style";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { loginUser } from "../../store/authSlice";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,9 @@ const LoginForm = () => {
         // alert(response)
       } else {
         navigate("/blog");
+        toast.success('User Login successfully !', {
+          position: toast.POSITION.TOP_RIGHT
+      });
       }
     });
   };
