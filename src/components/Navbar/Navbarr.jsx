@@ -1,13 +1,15 @@
 import React from "react";
 import {Container} from "react-bootstrap";
 import profile from "../../assets/profile.jpg";
-import { User } from "./style";
+import { MyImg, User } from "./style";
 import { Navbar, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { MyNavbar, MyContainer, UserNavLink } from "./style";
 import { useSelector } from "react-redux";
 const Navbarr = () => {
   const name = useSelector(state=>state.auth.user.name);
+  const picture = useSelector(state=>state.auth.user.profilePicture);
+  console.log(picture);
   return (
       <MyNavbar expand="lg" variant="dark">
         <MyContainer>
@@ -37,7 +39,7 @@ const Navbarr = () => {
             </LinkContainer>
 
             <User>
-            <img src={profile} alt="" />
+            <MyImg src={`http://localhost:8800${picture}`} alt="" />
             <UserNavLink>{name}</UserNavLink>
             </User>
           </Nav>
