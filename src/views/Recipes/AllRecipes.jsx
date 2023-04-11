@@ -7,12 +7,13 @@ import { Card, Button } from "react-bootstrap";
 import meal from "../../assets/meal.jpg";
 import meal1 from "../../assets/meal1.jpg";
 import meal2 from "../../assets/meal2.jpg";
-
+import { useNavigate } from "react-router-dom";
 import {OneCard, CardImg } from "./style";
 
 const AllRecipes = () => {
   const recipes = [
     {
+      id: 1,
       title: "Pasta",
       ingredients: ["pasta", "tomatoes", "cheese"],
       image:  meal1 ,
@@ -20,6 +21,7 @@ const AllRecipes = () => {
       calories: "100",
     },
     {
+      id: 2,
       title: "Pizza",
       ingredients: ["dough", "tomatoes", "cheese"],
       image:  meal2 ,
@@ -27,6 +29,7 @@ const AllRecipes = () => {
       calories: "100",
     },
     {
+      id: 3,
       title: "Salad",
       ingredients: ["lettuce", "tomatoes", "cucumber"],
       image: meal ,
@@ -34,6 +37,7 @@ const AllRecipes = () => {
       calories: "100",
     },
     {
+      id: 4,
         title: "Pizza",
         ingredients: ["dough", "tomatoes", "cheese"],
         image:  meal2 ,
@@ -41,6 +45,7 @@ const AllRecipes = () => {
         calories: "100",
       },
       {
+        id: 5,
         title: "Salad",
         ingredients: ["lettuce", "tomatoes", "cucumber"],
         image: meal ,
@@ -48,6 +53,8 @@ const AllRecipes = () => {
         calories: "100",
       },
   ];
+
+  const navigate = useNavigate();
   return (
     <div>
       <RecipesHeader />
@@ -55,7 +62,9 @@ const AllRecipes = () => {
       <Container>
         <Row>
           {recipes.map((recipe, index) => (
-            <Col xs={12} md={6} lg={4}>
+            <Col xs={12} md={6} lg={4} onClick={ ()=>{
+              navigate(`/healthyeating/${recipe.id}`)
+            }}>
               <OneCard key={index}>
                 <CardImg variant="top" src={recipe.image} />
                 <Card.Body>

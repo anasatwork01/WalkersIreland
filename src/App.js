@@ -24,10 +24,11 @@ function App() {
       <Route path="/signup" element={<SignUp/>}/>
       <Route path='/contactus' element={<ContactUs/>}/>
       <Route path="/blog" element={<Blogs/>}/>
+      <Route path='blog/:id' element={<SinglePageBlog/>}/>
       <Route path='/writeBlog' element={<CreateBlog/>}/>
-      <Route path='/post' element={<SinglePageBlog/>}/>
       <Route path='/healthyeating' element={<AllRecipes/>}/>
-      <Route path='/recipe' element={<SinglePageRecipe/>}/>
+      <Route path='healthyeating/:id' element={<SinglePageRecipe/>}/>
+
     </Routes>
     <ToastContainer/>
     </div>
