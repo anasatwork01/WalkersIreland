@@ -1,15 +1,36 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Form, InputFeild, SubmitButton, TextFeild, ErrorMessage } from "./style";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 const CreateBlogForm = () => {
+  const token = useSelector(state=>state.auth.token);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
+
+  const postBlog = async(data)=>{
+    try{
+      const res = axios.post('http://localhost:8800/api/v1/blog/post',data,{
+        headers:{
+          Authorization: `Bearer ${token}`
+        }
+      });
+      return res;
+    }catch(err){
+      alert(err)
+    }
+  }
+
+  
+  const onSubmit = async(data) => {
+    console.log(data)
+    const res = await postBlog({...data,image:data.image[0]});
+    console.log(res);
+
   };
   return (
     <>

@@ -44,6 +44,7 @@ export const Summary = styled.p`
 `;
 
 export const MyLink = styled(Link)`
+width: 100%;
   text-decoration: none;
   color: inherit;
 `;
