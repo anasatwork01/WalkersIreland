@@ -24,3 +24,7 @@ background-color: black;
 export const MyContainer = styled(Container)`
 position: relative;
 `
+
+export const MyImg = styled.img`
+width: 40px;
+`

@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { useForm } from "react-hook-form";
 import {
   Form,
@@ -7,6 +8,7 @@ import {
   TextFeild,
   ErrorMessage,
 } from "./style";
+import { toast } from "react-toastify";
 
 const ContactUsForm = () => {
   const {
@@ -14,8 +16,19 @@ const ContactUsForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
     console.log(data);
+    try {
+      const response = await axios.post("http://localhost:8800/api/v1/query",data);
+      if(response){
+        toast.success('Query Submitted successfully !', {
+          position: toast.POSITION.TOP_RIGHT
+      });
+      }
+
+    } catch (error) {
+      console.error(error);
+    }
   };
   return (
     <>

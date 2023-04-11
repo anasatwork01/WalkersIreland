@@ -7,11 +7,15 @@ import ContactUs from './views/ContactUs/ContactUs';
 import Blogs from './views/Blogs/Blogs';
 import CreateBlog from './views/CreateBlog/CreateBlog';
 import SinglePageBlog from './views/SinglePageBlog/SinglePageBlog';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import AllRecipes from './views/Recipes/AllRecipes';
-import RecipesHeader from './components/RecipesHeader/RecipesHeader';
 import SinglePageRecipe from './views/SinglePageRecipe/SinglePageRecipe'
+import { useSelector } from 'react-redux';
 
 function App() {
+  const isauth = useSelector(state=>state.auth.isAuthenticated);
+  
   return (
     <div>
       <Navbarr/>
@@ -26,6 +30,7 @@ function App() {
       <Route path='healthyeating/:id' element={<SinglePageRecipe/>}/>
 
     </Routes>
+    <ToastContainer/>
     </div>
   );
 }

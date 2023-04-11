@@ -1,15 +1,34 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { ErrorMessage, Form, InputFeild, SubmitButton } from "./style";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { loginUser } from "../../store/authSlice";
+import { toast } from "react-toastify";
 
 const LoginForm = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const loading = useSelector(state=>state.auth.loading);
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
     console.log(data);
+    dispatch(loginUser(data)).then((response) => {
+      if (response.error) {
+        // alert(response)
+      } else {
+        navigate("/blog");
+        toast.success('User Login successfully !', {
+          position: toast.POSITION.TOP_RIGHT
+      });
+      }
+    });
   };
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
@@ -39,7 +58,7 @@ const LoginForm = () => {
       {errors.password && (
         <ErrorMessage>{errors.password.message}</ErrorMessage>
       )}
-      <SubmitButton type="submit" name="Login" value={"Login"} />
+      <SubmitButton type="submit" name="Login" value={loading?"Loading...":"Login"} />
       <hr />
     </Form>
   );
