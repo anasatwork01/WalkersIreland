@@ -3,9 +3,12 @@ import { useForm } from "react-hook-form";
 import { Form, InputFeild, SubmitButton, TextFeild, ErrorMessage } from "./style";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 const CreateBlogForm = () => {
   const token = useSelector(state=>state.auth.token);
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -27,10 +30,19 @@ const CreateBlogForm = () => {
 
   
   const onSubmit = async(data) => {
-    console.log(data)
-    const res = await postBlog({...data,image:data.image[0]});
-    console.log(res);
-
+    console.log({...data,image:data.image[0]})
+    const formData = new FormData()
+    formData.append('title',data.title);
+    formData.append('summary',data.summary);
+    formData.append('content',data.content);
+    formData.append('cover',data.image[0]);
+    const res = await postBlog(formData);
+    if(res.status===200){
+      toast.success('Blog Posted successfully !', {
+        position: toast.POSITION.TOP_RIGHT
+    });
+      navigate('/blog');
+    }
   };
   return (
     <>
