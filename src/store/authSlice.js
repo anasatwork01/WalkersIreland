@@ -10,6 +10,8 @@ const initialState = {
   token: localStorage.getItem("token") ? localStorage.getItem("token") : "",
 };
 
+
+
 const authSlice = createSlice({
   name: "auth",
   initialState,
@@ -113,5 +115,7 @@ export const registerUser = createAsyncThunk(
     }
   }
 );
+
+export const authActions = authSlice.actions;
 
 export default authSlice;

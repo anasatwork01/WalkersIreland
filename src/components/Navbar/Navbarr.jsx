@@ -5,10 +5,19 @@ import { MyImg, User } from "./style";
 import { Navbar, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { MyNavbar, MyContainer, UserNavLink } from "./style";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../../store/authSlice";
 const Navbarr = () => {
+  const dispatch = useDispatch();
   const name = useSelector(state=>state.auth.user.name);
   const picture = useSelector(state=>state.auth.user.profilePicture);
+  const isauth = useSelector((state) => state.auth.isAuthenticated);
+
+  const logoutHandler = ()=>{
+    alert("Do you want to logout");
+    dispatch(authActions.logout());
+  }
+
   console.log(picture);
   return (
       <MyNavbar expand="lg" variant="dark">
@@ -39,8 +48,16 @@ const Navbarr = () => {
             </LinkContainer>
 
             <User>
-            <MyImg src={`http://localhost:8800${picture}`} alt="" />
-            <UserNavLink>{name}</UserNavLink>
+
+            {isauth&&<MyImg src={`http://localhost:8800${picture}`} alt="" />}
+            {isauth&&<UserNavLink>{name}</UserNavLink>}
+            {isauth&&<Nav.Link><span onClick={logoutHandler}>Logout</span></Nav.Link>}
+            {!isauth&&<LinkContainer to="/login">
+              <UserNavLink>Login</UserNavLink>
+            </LinkContainer>}
+            {!isauth&&<LinkContainer to="/signup">
+              <UserNavLink>Signup</UserNavLink>
+            </LinkContainer>}
             </User>
           </Nav>
         </Navbar.Collapse>
