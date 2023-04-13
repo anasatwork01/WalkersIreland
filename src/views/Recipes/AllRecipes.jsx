@@ -45,7 +45,7 @@ const AllRecipes = () => {
       <Container>
         <Row>
           {allMeals.map((meal, index) => (
-            <Col xs={12} md={6} lg={4} onClick={ ()=>{
+            <Col key={meal._id} xs={12} md={6} lg={4} onClick={ ()=>{
               navigate(`/healthyeating/${meal._id}`)
             }}>
               <OneCard key={index}>
