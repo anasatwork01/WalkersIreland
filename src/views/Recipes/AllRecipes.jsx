@@ -13,11 +13,19 @@ import axios from "axios";
 
 const AllRecipes = () => {
   const [allMeals, setAllMeals] = useState([]);
+  const [filter, setFilter] = useState("");
+
+  const filterHandler =(data)=>{
+    console.log(data);
+    setFilter(data);
+  }
+
+  
 
   useEffect(() => {
     async function getAllMeals() {
       try {
-        const res = await axios.get("http://localhost:8800/api/v1/meals");
+        const res = await axios.get(`http://localhost:8800/api/v1/meals?${filter?`kind=${filter}`:""}`);
         setAllMeals(res.data);
         return res;
       } catch (err) {
@@ -25,14 +33,14 @@ const AllRecipes = () => {
       }
     }
     getAllMeals();
-  }, []);
+  }, [filter]);
 
   
 
   const navigate = useNavigate();
   return (
     <div>
-      <RecipesHeader />
+      <RecipesHeader filterHandler={filterHandler}/>
 
       <Container>
         <Row>

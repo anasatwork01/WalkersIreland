@@ -1,27 +1,25 @@
 import React, {useState} from 'react'
 import { HeaderContainer, MyHeader, Select, Heading } from "./style";
 
-const RecipesHeader = () => {
-    const [searchTerm, setSearchTerm] = useState('');
+const RecipesHeader = ({filterHandler}) => {
     const [dropdownValue, setDropdownValue] = useState('');
   
-    const handleSearch = (e) => {
-      setSearchTerm(e.target.value);
-    };
-  
+
     const handleDropdownChange = (e) => {
       setDropdownValue(e.target.value);
+      filterHandler(e.target.value);
     };
 
   return (
     <MyHeader>
       <HeaderContainer>
-        <Heading>Recipes Section</Heading>
-      <Select value={dropdownValue} onChange={handleDropdownChange}>
-      <option defaultValue = "All Dishes">All Dishes</option>
-        <option value="Pre Walking Dishes">Pre Walking Dishes</option>
-        <option value="Post Walking Dishes">Post Walking Dishes</option>
-        <option value="Tasty Healthy Dishes">Tasty Healthy Dishes</option>
+        <Heading>Healthy Eating</Heading>
+      <Select onChange={handleDropdownChange}>
+      <option value ="">All Meals</option>
+        <option value="preWalk">Pre Walking Meals</option>
+        <option value="postWalk">Post Walking Meals</option>
+        <option value="winter">Winter Meals</option>
+        <option value="tasty">Tasty Healthy Meals</option>
       </Select>
       </HeaderContainer>
     </MyHeader>
