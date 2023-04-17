@@ -13,6 +13,7 @@ import AllRecipes from "./views/Recipes/AllRecipes";
 import SinglePageRecipe from "./views/SinglePageRecipe/SinglePageRecipe";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
+import EditUser from "./views/EditUser/EditUser";
 
 function App() {
   //For write Blog
@@ -41,6 +42,7 @@ function App() {
         <Route path="/writeBlog" element={<CreateBlog />} />
         <Route path="/healthyeating" element={<AllRecipes />} />
         <Route path="healthyeating/:id" element={<SinglePageRecipe />} />
+        <Route path="/me" element={<EditUser />} />
       </Routes>
       <ToastContainer />
     </>
