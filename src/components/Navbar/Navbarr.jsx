@@ -28,9 +28,6 @@ const Navbarr = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <LinkContainer to="/destinations">
-              <Nav.Link>Destinations</Nav.Link>
-            </LinkContainer>
             <LinkContainer to="/adventures">
               <Nav.Link>Adventures</Nav.Link>
             </LinkContainer>
@@ -48,9 +45,11 @@ const Navbarr = () => {
             </LinkContainer>
 
             <User>
-
+            
             {isauth&&<MyImg src={`http://localhost:8800${picture}`} alt="" />}
-            {isauth&&<UserNavLink>{name}</UserNavLink>}
+            {isauth&&<LinkContainer to={'/me'}>
+            <UserNavLink>{name}</UserNavLink>
+            </LinkContainer>}
             {isauth&&<Nav.Link><span onClick={logoutHandler}>Logout</span></Nav.Link>}
             {!isauth&&<LinkContainer to="/login">
               <UserNavLink>Login</UserNavLink>
