@@ -34,9 +34,6 @@ const Navbarr = () => {
             <LinkContainer to="/healthyeating">
               <Nav.Link>HealthyEating</Nav.Link>
             </LinkContainer>
-            {/* <LinkContainer to="/wellbeing">
-              <Nav.Link>Wellbeing</Nav.Link>
-            </LinkContainer> */}
             <LinkContainer to="/blog">
               <Nav.Link>Blog</Nav.Link>
             </LinkContainer>
@@ -47,7 +44,7 @@ const Navbarr = () => {
             <User>
             
             {isauth&&<MyImg src={`http://localhost:8800${picture}`} alt="" />}
-            {isauth&&<LinkContainer to={'/me'}>
+            {isauth&&<LinkContainer>
             <UserNavLink>{name}</UserNavLink>
             </LinkContainer>}
             {isauth&&<Nav.Link><span onClick={logoutHandler}>Logout</span></Nav.Link>}
