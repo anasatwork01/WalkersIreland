@@ -17,6 +17,7 @@ import EditUser from "./views/EditUser/EditUser";
 import Adventures from "./views/Adventures/Adventures";
 import SingleAdventurePage from "./views/SingleAdventurePage/SingleAdventurePage";
 import Home from "./views/Home/Home";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   //For write Blog
@@ -50,6 +51,7 @@ function App() {
         <Route path="healthyeating/:id" element={<SinglePageRecipe />} />
         <Route path="/me" element={<EditUser />} />
       </Routes>
+      {show && <Footer/>}
       <ToastContainer />
     </>
   );
