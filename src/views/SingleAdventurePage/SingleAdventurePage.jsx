@@ -15,8 +15,8 @@ const SingleAdventurePage = () => {
   return (
     <div>
           <BlogContainer>
-      <Title>"Title"</Title>
-      <Author>Path <Info>Sea Kayaking</Info></Author>
+      <Title>Title</Title>
+      <Author><Info>Sea Kayaking</Info></Author>
       <Image src={test} alt="" />
       <Content>
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione ipsa odio rerum enim omnis odit accusamus molestias praesentium unde nam.

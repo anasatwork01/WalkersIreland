@@ -24,9 +24,9 @@ const AdventuresPost = ({source,blog}) => {
         <MyLink to={`/adventures/1`}>
           <Title>Sea Routes</Title>
         </MyLink>
-        <Info>
-          <Author className="author">Path: Sea Kayaking</Author>
-        </Info>
+      
+          <Author className="author"><Info>Sea Kayaking</Info></Author>
+    
         <Summary>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Aspernatur nulla error sed excepturi voluptatem explicabo amet quod perspiciatis dolor tempore?
         </Summary>
