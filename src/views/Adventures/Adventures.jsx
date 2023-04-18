@@ -7,20 +7,23 @@ import { PostContainer } from "./style";
 const Adventures = () => {
 
   return (
-    <div>
-      <AdventureHeader/>
+    <>
+<AdventureHeader/>
+      <Container>
+        <PostContainer>
       <AdventuresPost/>
+      </PostContainer>
+      </Container>
+      </>
 
-      {/* <Container>
+      /* <Container>
         <PostContainer>
           {allBlogs.map((blog) => (
             <AdventuresPost key={blog.id} blog={blog}/>
           ))}
         </PostContainer>
-      </Container> */}
+      </Container> */
 
-
-    </div>
   )
 }
 

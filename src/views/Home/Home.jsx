@@ -3,11 +3,12 @@ import Carousel from 'react-bootstrap/Carousel';
 import a from '../../assets/a.jpg'
 import b from '../../assets/b.jpg'
 import c from '../../assets/c.jpg'
+import { Container } from 'react-bootstrap';
 
 const Home = () => {
   return (
     <div>
-    
+    <Container>
     <Carousel>
       <Carousel.Item interval={1000}>
         <img
@@ -45,7 +46,7 @@ const Home = () => {
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
-
+    </Container>
     </div>
   )
 }
