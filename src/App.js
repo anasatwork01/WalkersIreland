@@ -14,6 +14,9 @@ import SinglePageRecipe from "./views/SinglePageRecipe/SinglePageRecipe";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import EditUser from "./views/EditUser/EditUser";
+import Adventures from "./views/Adventures/Adventures";
+import SingleAdventurePage from "./views/SingleAdventurePage/SingleAdventurePage";
+import Home from "./views/Home/Home";
 
 function App() {
   //For write Blog
@@ -36,7 +39,10 @@ function App() {
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/home" element={<Home />} />
         <Route path="/contactus" element={<ContactUs />} />
+        <Route path="/adventures" element={<Adventures/>} />
+         <Route path="adventures/1" element={<SingleAdventurePage />} />
         <Route path="/blog" element={<Blogs />} />
         <Route path="blog/:id" element={<SinglePageBlog />} />
         <Route path="/writeBlog" element={<CreateBlog />} />

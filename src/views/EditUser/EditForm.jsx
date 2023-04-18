@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useSelector } from "react-redux";
-import Avatar from "react-avatar-edit";
+// import Avatar from "react-avatar-edit";
 
 const EditForm = () => {
   const user = useSelector((state) => state.auth.user);
